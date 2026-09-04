@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+imgs/*.mp4
+src/imgs/*.mp4
