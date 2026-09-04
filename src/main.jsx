@@ -9,7 +9,7 @@ ReactDOM.createRoot(
   document.getElementById("root")
 ).render(
   <React.StrictMode>
-    <BrowserRouter basename="/imoveis/APARTAMENTOS">
+    <BrowserRouter basename="/imobvirtual-1">
       <App />
     </BrowserRouter>
   </React.StrictMode>
