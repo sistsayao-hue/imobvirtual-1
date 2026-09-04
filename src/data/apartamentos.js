@@ -1,0 +1,62 @@
+const apartamentos = [
+  {
+    id: 1,
+    localizacao: "Pinheiros",
+    empreendimento:"Quartier",
+    regiao:"Oeste",
+    preco: "R$ 2.000.000,00",
+  },
+
+
+ 
+{
+    id: 2,
+    localizacao: "Paraiso",
+    empreendimento:"Le Six - studio",
+       video: "/imgs/studioparaiso.mp4",
+    preco: "R$ 520.000,00",
+    regiao:"Sul",
+
+
+  },
+
+
+
+  {
+    id: 3,
+    localizacao: "Paraiso",
+    empreendimento:"Le Six",
+       video: "/imgs/Salas.mp4",
+    preco: "R$ 6.480.000,00",
+     regiao:"Sul",
+
+
+  },
+
+
+
+
+  {
+    id: 4,
+    localizacao: "Bela Vista",
+    empreendimento:"Ap Paulista",
+       regiao:"Sul",
+    preco: "R$ 480.000,00",
+
+
+    
+  },
+
+  {
+    id: 5,
+    localizacao: "Jardins",
+    empreendimento:"Casa jardins Jau",
+    regiao:"Oeste",
+    preco: "R$ 4.000.000,00",
+  },
+
+
+
+];
+
+export default apartamentos;
