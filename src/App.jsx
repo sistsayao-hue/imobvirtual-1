@@ -1,7 +1,7 @@
 
 import { Routes, Route, Link } from "react-router-dom";
 
-import ListCard from "./components/ListCard";
+import ListCard from "./components/listCard";
 import Filtro from "./components/filtro";
 import Cadastro from "./components/cadastro";
 import Formulario from "./components/formulario";
