@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blue;
+}
+
+.formulario {
+  width: 80%;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: white;
+}
+
+.formulario h1 {
+  margin-bottom: 30px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.campo label {
+  width: 80px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.for {
+  width: 20%;
+  height: 40px;
+  padding: 5px 10px;
+  border: 2px solid #555;
+  border-radius: 21px;
+}
+
+.btao {
+  display: block;
+  width: 280px;
+  height: 55px;
+
+  margin: 35px auto 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #158a15, #249271);
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.20);
+
+  transition: all 0.3s ease;
+}
+
+.btao:hover {
+  transform: translateY(-2px);
+
+  background: linear-gradient(135deg, #e29a50, #c87535);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btao:active {
+  transform: translateY(1px);
+
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.20);
+}
+
+.btao:focus-visible {
+  outline: 3px solid rgba(216, 137, 61, 0.35);
+  outline-offset: 3px;
+}
+
+.for:hover {
+  border-color: orange;
+  border:4p solid orange;
+  background-color: #918880;
+}
+
+.for:focus {
+  background-color: #fff3e0;
+  outline: none;
+  border-color: orange;
+}
+
+.for:focus {
+  background-color: rgb(214, 67, 177) !important;
+  border:7px solid purple;
+}
+
+Se ficar vermel
