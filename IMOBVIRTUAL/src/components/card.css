@@ -1,0 +1,32 @@
+.lista-cartoes {
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px;
+}
+.cartao {
+  overflow:hidden; min-width:0; display:flex; flex-direction:column; background:#fff;
+  border:1px solid #dfe8e3; border-radius:18px; box-shadow:0 10px 28px rgba(26,64,49,.07);
+  transition:transform .25s ease,box-shadow .25s ease; animation:entrada .45s ease both;
+}
+.cartao:hover { transform:translateY(-7px); box-shadow:0 18px 38px rgba(26,64,49,.13); }
+.cartao-media { height:220px; position:relative; overflow:hidden; background:linear-gradient(135deg,#d9e9e1,#b7d0c3); }
+.take { width:100%; height:100%; display:block; object-fit:cover; }
+.sem-arquivo {
+  width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.7),transparent 30%),linear-gradient(135deg,#dcece4,#b8d2c4);
+  color:#356253; text-align:center;
+}
+.casa-icone { font-size:58px; line-height:1; font-family:Georgia,serif; opacity:.72; }
+.sem-arquivo small { margin-top:10px; font-size:9px; letter-spacing:2px; color:#55786a; }
+.sem-arquivo strong { margin-top:5px; font:600 20px Georgia,serif; }
+.tag-imovel { position:absolute; top:14px; right:14px; padding:7px 10px; border-radius:999px; background:rgba(18,61,48,.88); color:#f2d895; font-size:9px; font-weight:900; letter-spacing:1px; }
+.cartao-corpo { padding:18px 18px 17px; }
+.localizacao { margin:0 0 7px; color:#a17c31; font-size:10px; font-weight:900; letter-spacing:1px; text-transform:uppercase; }
+.cartao h2 { margin:0; color:#193d31; font:600 24px/1.15 Georgia,serif; }
+.descricao { margin:9px 0 0; color:#718078; font-size:12px; line-height:1.5; }
+.detalhes { display:flex; gap:16px; margin:18px 0; padding:12px 0; border-top:1px solid #e8eee9; border-bottom:1px solid #e8eee9; color:#74847c; font-size:11px; }
+.detalhes b { color:#34594b; }
+.cartao-rodape { display:flex; flex-direction:column; gap:3px; }
+.cartao-rodape span { color:#8a9690; font-size:10px; }
+.cartao-rodape strong { color:#9a752e; font-size:18px; font-weight:800; }
+@keyframes entrada { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@media(max-width:1000px){ .lista-cartoes{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:620px){ .lista-cartoes{grid-template-columns:1fr;gap:18px}.cartao-media{height:230px} }

@@ -1,0 +1,77 @@
+.saida {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f1f3f6;
+}
+
+.titulo-saida {
+  text-align: center;
+  margin-bottom: 35px;
+  color: #333;
+  font-size: 36px;
+}
+
+.lista-apartamentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-apartamento {
+  background: white;
+  border: 2px solid #8799aa;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-apartamento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.video-container {
+  width: 100%;
+  height: 230px;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sem-video {
+  color: white;
+  font-size: 18px;
+}
+
+.informacoes {
+  padding: 20px;
+}
+
+.informacoes h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 24px;
+}
+
+.informacoes p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+.preco {
+  margin-top: 18px !important;
+  font-size: 22px !important;
+  font-weight: bold;
+  color: #b8860b !important;
+}
