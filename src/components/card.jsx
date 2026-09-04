@@ -1,7 +1,8 @@
+
 import "./card.css";
 
 const Card = (produto) => {
-  // URL onde o PHP salva os vídeos
+
   const urlVideo = produto.video
     ? `https://ctrmetodo.com.br/Fotografias/${produto.video}`
     : "";
