@@ -40,7 +40,7 @@ const Inicio = () => {
         if (!Array.isArray(dados)) throw new Error("Formato de dados inválido.");
         if (ativo) {
           setApartamentos(dados);
-          setApartamentosFiltrados(dados);
+          setApartamentosFiltrados([]);
         }
       } catch (erroOnline) {
         console.warn("API online indisponível. Usando catálogo local.", erroOnline);
@@ -51,7 +51,7 @@ const Inicio = () => {
           if (!Array.isArray(dadosLocais)) throw new Error("Catálogo local inválido.");
           if (ativo) {
             setApartamentos(dadosLocais);
-            setApartamentosFiltrados(dadosLocais);
+            setApartamentosFiltrados([]);
             setFonte("local");
             setErro("");
           }
