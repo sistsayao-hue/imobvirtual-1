@@ -14,32 +14,66 @@ const Filtro = ({ apartamentos, setApartamentosFiltrados }) => {
       .map((item) => item.bairro || item.localizacao)
       .filter(Boolean)
   )], [apartamentos, regiao]);
+useEffect(() => {
+  const temFiltro =
+    regiao ||
+    bairro ||
+    valorMaximo ||
+    m2Minimo;
 
-  useEffect(() => {
-    let resultado = [...apartamentos];
+  // Se nenhum filtro foi escolhido, não mostra nenhum imóvel
+  if (!temFiltro) {
+    setApartamentosFiltrados([]);
+    return;
+  }
 
-    if (regiao) resultado = resultado.filter((item) => item.regiao?.toLowerCase() === regiao.toLowerCase());
-    if (bairro) resultado = resultado.filter((item) => (item.bairro || item.localizacao)?.toLowerCase() === bairro.toLowerCase());
+  let resultado = [...apartamentos];
 
-    if (valorMaximo) {
-      const limite = Number(valorMaximo);
-      resultado = resultado.filter((item) => {
-        const numero = Number(String(item.preco ?? "").replace(/[^0-9,.-]/g, "").replace(/\./g, "").replace(",", "."));
-        return Number.isNaN(numero) ? true : numero <= limite;
-      });
-    }
+  if (regiao) {
+    resultado = resultado.filter(
+      (item) =>
+        item.regiao?.toLowerCase() === regiao.toLowerCase()
+    );
+  }
 
-    if (m2Minimo) {
-      resultado = resultado.filter((item) => Number(item.m2) >= Number(m2Minimo));
-    }
+  if (bairro) {
+    resultado = resultado.filter(
+      (item) =>
+        (item.bairro || item.localizacao)?.toLowerCase() ===
+        bairro.toLowerCase()
+    );
+  }
 
-    setApartamentosFiltrados(resultado);
-  }, [apartamentos, regiao, bairro, valorMaximo, m2Minimo, setApartamentosFiltrados]);
+  if (valorMaximo) {
+    const limite = Number(valorMaximo);
 
-  const limparFiltros = () => {
-    setRegiao(""); setBairro(""); setValorMaximo(""); setM2Minimo("");
-  };
+    resultado = resultado.filter((item) => {
+      const numero = Number(
+        String(item.preco ?? "")
+          .replace(/[^0-9,.-]/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".")
+      );
 
+      return Number.isNaN(numero) ? true : numero <= limite;
+    });
+  }
+
+  if (m2Minimo) {
+    resultado = resultado.filter(
+      (item) => Number(item.m2) >= Number(m2Minimo)
+    );
+  }
+
+  setApartamentosFiltrados(resultado);
+}, [
+  apartamentos,
+  regiao,
+  bairro,
+  valorMaximo,
+  m2Minimo,
+  setApartamentosFiltrados,
+]);
   return (
     <section className="filtro-area" aria-label="Filtros de imóveis">
       <div className="filtro-titulo">
