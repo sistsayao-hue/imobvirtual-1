@@ -10,6 +10,8 @@ const Cadastro = () => {
   const [m2, setM2] = useState("");
   const [preco, setPreco] = useState("");
   const [descricao, setDescricao] = useState("");
+const [endereco, setEndereco] = useState("");
+const [dts, setDts] = useState("");
 
   // Foto ou vídeo
   const [video, setVideo] = useState(null);
@@ -61,6 +63,17 @@ const Cadastro = () => {
       bairro
     );
 
+formulario.append(
+      "endereco",
+      endereco
+    );
+
+formulario.append(
+      "dts",
+      dts
+    );
+
+
     formulario.append(
       "m2",
       m2
@@ -87,6 +100,10 @@ const Cadastro = () => {
       );
     }
 
+
+
+
+
     // ========================================
     // MOSTRAR NO CONSOLE
     // ========================================
@@ -105,6 +122,23 @@ const Cadastro = () => {
       "BAIRRO:",
       bairro
     );
+console.log(
+      "BAIRRO:",
+      bairro
+    );
+    console.log(
+      "ENDERECO:",
+      endereco
+    );
+
+
+        console.log(
+      "dts:",
+      dts
+    );
+
+
+
 
     console.log(
       "M2:",
@@ -281,6 +315,10 @@ const Cadastro = () => {
                   Zona Norte
                 </option>
 
+                <option value="zona-norte">
+                  Zona Norte
+                </option>
+
               </select>
 
             </div>
@@ -338,6 +376,56 @@ const Cadastro = () => {
 
           </div>
 
+
+          {/* ================================= */}
+          {/* ENDEREÇO }
+          {/* ================================= */}
+
+          <div className="linha-campos">
+
+            <div className="campo">
+
+              <label htmlFor="endereco">
+                ENDEREÇO
+              </label>
+
+              <input
+                id="endereco"
+                type="text"
+                value={endereco}
+                onChange={(event) =>
+                  setEndereco(
+                    event.target.value
+                  )
+                }
+                placeholder="endereço"
+              />
+
+            </div>
+
+
+            <div className="campo">
+
+              <label htmlFor="dts">
+                dts
+              </label>
+
+              <input
+                id="dts"
+                type="number"
+                min="1"
+                value={dts}
+                onChange={(event) =>
+                  setDts(
+                    event.target.value
+                  )
+                }
+                placeholder="Ex: 2"
+              />
+
+            </div>
+
+          </div>
 
           {/* ================================= */}
           {/* PRECO */}
