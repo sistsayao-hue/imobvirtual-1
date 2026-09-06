@@ -91,7 +91,7 @@ const Inicio = () => {
             <Link to="/">Imóveis</Link>
             <Link to="/cadastro">Cadastrar imóvel</Link>
             <Link to="/financiamento">
-  FINANCIAMENTO
+  Marketing
 </Link>
           </nav>
         </div>
