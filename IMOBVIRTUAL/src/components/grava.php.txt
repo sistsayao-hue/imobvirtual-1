@@ -1,0 +1,96 @@
+<?php
+
+header("Content-Type: application/json; charset=UTF-8");
+
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
+
+include("../../conexao/conexao2.php");
+
+if (!isset($conn)) {
+    echo json_encode([
+        "sucesso" => false,
+        "mensagem" => "A conexão com o banco não foi criada."
+    ]);
+    exit;
+}
+
+$conn->set_charset("utf8mb4");
+
+$entrada = file_get_contents("php://input");
+
+$dados = json_decode($entrada, true);
+
+if (!$dados) {
+    echo json_encode([
+        "sucesso" => false,
+        "mensagem" => "Nenhum dado recebido pelo PHP."
+    ]);
+    exit;
+}
+
+$empreendimento = trim($dados["empreendimento"] ?? "");
+$regiao = trim($dados["regiao"] ?? "");
+$bairro = trim($dados["bairro"] ?? "");
+$m2 = intval($dados["m2"] ?? 0);
+$preco = intval($dados["preco"] ?? 0);
+$descricao = trim($dados["descricao"] ?? "");
+
+if (
+    $empreendimento === "" ||
+    $regiao === "" ||
+    $bairro === "" ||
+    $m2 <= 0 ||
+    $preco <= 0
+) {
+    echo json_encode([
+        "sucesso" => false,
+        "mensagem" => "Preencha todos os campos obrigatórios."
+    ]);
+    exit;
+}
+
+$sql = "INSERT INTO apartamentos
+        (empreendimento, regiao, bairro, m2, preco, descricao)
+        VALUES (?, ?, ?, ?, ?, ?)";
+
+$stmt = $conn->prepare($sql);
+
+if (!$stmt) {
+    echo json_encode([
+        "sucesso" => false,
+        "mensagem" => "Erro ao preparar SQL: " . $conn->error
+    ]);
+    exit;
+}
+
+$stmt->bind_param(
+    "sssids",
+    $empreendimento,
+    $regiao,
+    $bairro,
+    $m2,
+    $preco,
+    $descricao
+);
+
+if ($stmt->execute()) {
+
+    echo json_encode([
+        "sucesso" => true,
+        "mensagem" => "Apartamento cadastrado com sucesso!",
+        "cod" => $stmt->insert_id
+    ]);
+
+} else {
+
+    echo json_encode([
+        "sucesso" => false,
+        "mensagem" => "Erro ao gravar: " . $stmt->error
+    ]);
+}
+
+$stmt->close();
+$conn->close();
+
+?>

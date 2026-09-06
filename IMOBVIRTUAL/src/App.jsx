@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import ListCard from "./components/listcard.jsx";
@@ -9,9 +8,6 @@ import Saida from "./components/saida.jsx";
 import Teste from "./components/teste.jsx";
 import Receber from "./components/receber.jsx";
 import "./App.css";
-import Financiamento from "./components/Financiamento.jsx";
-import AreaNegocios from "./components/AreaNegocios.jsx";
-
 
 const API = "https://ctrmetodo.com.br/react/listar.php";
 
@@ -33,10 +29,6 @@ const Inicio = () => {
   const [fonte, setFonte] = useState("online");
   const [erro, setErro] = useState("");
 
- 
-
-  const [valorImovel, setValorImovel] = useState("");
-
   useEffect(() => {
     let ativo = true;
 
@@ -48,7 +40,7 @@ const Inicio = () => {
         if (!Array.isArray(dados)) throw new Error("Formato de dados inválido.");
         if (ativo) {
           setApartamentos(dados);
-          setApartamentosFiltrados([]);
+          setApartamentosFiltrados(dados);
         }
       } catch (erroOnline) {
         console.warn("API online indisponível. Usando catálogo local.", erroOnline);
@@ -59,7 +51,7 @@ const Inicio = () => {
           if (!Array.isArray(dadosLocais)) throw new Error("Catálogo local inválido.");
           if (ativo) {
             setApartamentos(dadosLocais);
-            setApartamentosFiltrados([]);
+            setApartamentosFiltrados(dadosLocais);
             setFonte("local");
             setErro("");
           }
@@ -90,9 +82,6 @@ const Inicio = () => {
           <nav className="menu-principal" aria-label="Navegação principal">
             <Link to="/">Imóveis</Link>
             <Link to="/cadastro">Cadastrar imóvel</Link>
-            <Link to="/financiamento">
-  FINANCIAMENTO
-</Link>
           </nav>
         </div>
 
@@ -165,10 +154,6 @@ const App = () => (
     <Route path="/saida" element={<Saida />} />
     <Route path="/teste" element={<Teste />} />
     <Route path="/receber" element={<Receber />} />
-<Route path="/financiamento" element={<Financiamento />} />
-<Route path="/area-negocios" element={<AreaNegocios />} />
-
-
   </Routes>
 );
 

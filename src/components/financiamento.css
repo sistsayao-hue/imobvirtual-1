@@ -1,0 +1,247 @@
+.pagina-financiamento {
+  min-height: 100vh;
+  background: #f4f7f1;
+  padding-bottom: 50px;
+}
+
+.header-financiamento {
+  width: 100%;
+  min-height: 130px;
+  background: linear-gradient(135deg, #dce8c5, #f7f9f3);
+  border-bottom: 1px solid #d0dbbf;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px 7%;
+}
+
+.marca-financiamento {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.marca-simbolo-financiamento {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #9dc432;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 800;
+  box-shadow: 0 6px 18px rgba(100, 120, 40, 0.25);
+}
+
+.marca-texto-financiamento h1 {
+  margin: 0;
+  font-size: 38px;
+  letter-spacing: 3px;
+  color: #4f5d52;
+  font-weight: 800;
+}
+
+.marca-texto-financiamento span {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #8ca536;
+}
+
+.area-financiamento {
+  width: 92%;
+  max-width: 1050px;
+  margin: 35px auto;
+  background: white;
+  border-radius: 18px;
+  padding: 35px 45px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10);
+}
+
+.titulo-financiamento {
+  margin: 0 0 30px;
+  border-bottom: 1px solid #e1e6dc;
+  padding-bottom: 20px;
+}
+
+.titulo-financiamento {
+  color: #4f5d52;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.subtitulo-financiamento {
+  margin-top: -18px;
+  margin-bottom: 30px;
+  color: #89928a;
+  font-size: 15px;
+}
+
+.formulario-financiamento {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+}
+
+.campo-financiamento {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.campo-financiamento label {
+  display: block;
+  margin-bottom: 7px;
+  color: #4f5d52;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.campo-financiamento input,
+.campo-financiamento select,
+.campo-financiamento textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d5ddd0;
+  border-radius: 9px;
+  background: #fbfcfa;
+  color: #424a44;
+  padding: 13px 15px;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  transition: 0.25s;
+}
+
+.campo-financiamento input,
+.campo-financiamento select {
+  height: 48px;
+}
+
+.campo-financiamento textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.campo-financiamento input:focus,
+.campo-financiamento select:focus,
+.campo-financiamento textarea:focus {
+  border-color: #9dc432;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(157, 196, 50, 0.12);
+}
+
+.acoes-financiamento {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.link-area-negocios,
+.bt-financiamento {
+  border: none;
+  border-radius: 9px;
+  padding: 14px 25px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.link-area-negocios {
+  background: #9dc432;
+  color: white;
+  box-shadow: 0 5px 15px rgba(157, 196, 50, 0.25);
+}
+
+.link-area-negocios:hover {
+  background: #829f2c;
+  transform: translateY(-2px);
+}
+
+.bt-financiamento {
+  background: #4f5d52;
+  color: white;
+  box-shadow: 0 5px 15px rgba(79, 93, 82, 0.20);
+}
+
+.bt-financiamento:hover {
+  background: #39443c;
+  transform: translateY(-2px);
+}
+
+.voltar-financiamento {
+  display: inline-block;
+  color: #59645c;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 10px;
+  transition: 0.25s;
+}
+
+.voltar-financiamento:hover {
+  color: #8ca536;
+}
+
+.resposta-financiamento {
+  max-width: 850px;
+  margin: 20px auto 0;
+  padding: 15px;
+  border-radius: 9px;
+  background: #f2f6eb;
+  border: 1px solid #d7e1c8;
+  color: #4f5d52;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  .header-financiamento {
+    padding: 20px;
+  }
+
+  .marca-texto-financiamento h1 {
+    font-size: 30px;
+  }
+
+  .marca-financiamento {
+    gap: 12px;
+  }
+
+  .marca-simbolo-financiamento {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+  }
+
+  .area-financiamento {
+    width: 95%;
+    padding: 25px 20px;
+    margin: 20px auto;
+  }
+
+  .titulo-financiamento {
+    font-size: 24px;
+  }
+
+  .acoes-financiamento {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .voltar-financiamento,
+  .link-area-negocios,
+  .bt-financiamento {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
