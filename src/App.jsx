@@ -9,7 +9,7 @@ import Saida from "./components/saida.jsx";
 import Teste from "./components/teste.jsx";
 import Receber from "./components/receber.jsx";
 import "./App.css";
-import Financiamento from "./components/Financiamento.jsx";
+import Financiamento from "./components/financiamento.jsx";
 import AreaNegocios from "./components/AreaNegocios.jsx";
 
 
