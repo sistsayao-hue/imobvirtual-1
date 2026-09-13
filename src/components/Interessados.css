@@ -1,0 +1,834 @@
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.interessados-container {
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 32px 28px 60px;
+
+  box-sizing: border-box;
+
+  color: #24332d;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.interessados-cabecalho {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 28px;
+}
+
+
+.interessados-label {
+
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #a6843c;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+.interessados-cabecalho h1 {
+
+  margin: 0;
+
+  color: #173d30;
+
+  font-size: 36px;
+
+  line-height: 1.1;
+
+  font-weight: 800;
+}
+
+
+.interessados-cabecalho p {
+
+  margin: 8px 0 0;
+
+  color: #65746d;
+
+  font-size: 16px;
+}
+
+
+/* =====================================================
+   BOTÃO ATUALIZAR
+===================================================== */
+
+.btn-atualizar-interessados {
+
+  border: 2px solid #597266;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #173d30;
+
+  padding: 12px 18px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.6px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.btn-atualizar-interessados:hover {
+
+  background: #173d30;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   RESUMO
+===================================================== */
+
+.interessados-resumo {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(180px, 260px));
+
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+
+.resumo-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 18px 20px;
+
+  border: 2px solid #b7c4bd;
+
+  border-radius: 15px;
+
+  background: #f4f7f1;
+
+  box-sizing: border-box;
+}
+
+
+.resumo-card span {
+
+  color: #66756e;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.resumo-card strong {
+
+  color: #173d30;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+
+/* =====================================================
+   BUSCA
+===================================================== */
+
+.interessados-busca {
+
+  width: 100%;
+
+  margin-bottom: 28px;
+}
+
+
+.interessados-busca input {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 16px 18px;
+
+  border: 2px solid #b7c4bd;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #24332d;
+
+  font-size: 16px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.interessados-busca input::placeholder {
+
+  color: #89958f;
+}
+
+
+.interessados-busca input:focus {
+
+  border-color: #597266;
+
+  box-shadow:
+    0 0 0 3px rgba(89, 114, 102, 0.12);
+}
+
+
+/* =====================================================
+   LISTA
+===================================================== */
+
+.lista-interessados {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+
+  align-items: stretch;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card-interessado {
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 2px solid #8ea199;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 25px rgba(23, 61, 48, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.card-interessado:hover {
+
+  transform: translateY(-3px);
+
+  border-color: #597266;
+
+  box-shadow:
+    0 14px 32px rgba(23, 61, 48, 0.13);
+}
+
+
+/* =====================================================
+   TOPO DO CARD
+===================================================== */
+
+.card-interessado-topo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  background: #f4f7f1;
+
+  border-bottom: 1px solid #d7dfda;
+}
+
+
+.interessado-avatar {
+
+  width: 52px;
+
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #173d30;
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  font-weight: 800;
+}
+
+
+.interessado-identificacao {
+
+  min-width: 0;
+}
+
+
+.interessado-identificacao h2 {
+
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #173d30;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.interessado-identificacao span {
+
+  display: block;
+
+  margin-top: 5px;
+
+  color: #78857f;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   DADOS
+===================================================== */
+
+.dados-interessado {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+  padding: 20px;
+}
+
+
+.dado-interessado {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.dado-icone {
+
+  width: 38px;
+
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #eef2ef;
+
+  font-size: 17px;
+}
+
+
+.dado-interessado div {
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.dado-interessado small {
+
+  color: #7a8781;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.dado-interessado strong {
+
+  overflow: hidden;
+
+  color: #293832;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   IMÓVEL
+===================================================== */
+
+.imovel-interessado {
+
+  margin: 0 20px;
+
+  padding: 17px;
+
+  border: 1px solid #cbd5cf;
+
+  border-radius: 12px;
+
+  background: #f8faf7;
+}
+
+
+.imovel-interessado span {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #a6843c;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+
+.imovel-interessado strong {
+
+  display: block;
+
+  color: #173d30;
+
+  font-size: 17px;
+
+  font-weight: 800;
+}
+
+
+.imovel-interessado p {
+
+  margin: 5px 0 0;
+
+  color: #66756e;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   AÇÕES
+===================================================== */
+
+.acoes-interessado {
+
+  margin-top: auto;
+
+  padding: 20px;
+}
+
+
+.btn-whatsapp {
+
+  width: 100%;
+
+  min-height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: #173d30;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.btn-whatsapp span {
+
+  font-size: 18px;
+}
+
+
+.btn-whatsapp:hover {
+
+  background: #235642;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 16px rgba(23, 61, 48, 0.20);
+}
+
+
+.btn-whatsapp:active {
+
+  transform: translateY(0);
+}
+
+
+/* =====================================================
+   CARREGANDO
+===================================================== */
+
+.interessados-carregando {
+
+  min-height: 220px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 2px solid #cbd5cf;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  color: #65746d;
+
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   VAZIO
+===================================================== */
+
+.interessados-vazio {
+
+  padding: 55px 25px;
+
+  border: 2px dashed #b7c4bd;
+
+  border-radius: 18px;
+
+  background: #f8faf7;
+
+  text-align: center;
+}
+
+
+.vazio-icone {
+
+  margin-bottom: 10px;
+
+  color: #a6843c;
+
+  font-size: 42px;
+}
+
+
+.interessados-vazio h2 {
+
+  margin: 0;
+
+  color: #173d30;
+
+  font-size: 22px;
+}
+
+
+.interessados-vazio p {
+
+  margin: 9px 0 0;
+
+  color: #718078;
+
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   ERRO
+===================================================== */
+
+.interessados-erro {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 7px;
+
+  margin-bottom: 25px;
+
+  padding: 20px;
+
+  border: 2px solid #d8b7b7;
+
+  border-radius: 14px;
+
+  background: #fff8f8;
+
+  color: #713f3f;
+}
+
+
+.interessados-erro strong {
+
+  font-size: 16px;
+}
+
+
+.interessados-erro span {
+
+  font-size: 14px;
+}
+
+
+.interessados-erro button {
+
+  margin-top: 8px;
+
+  padding: 9px 14px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #713f3f;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .lista-interessados {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+  }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .interessados-container {
+
+    padding: 24px 16px 45px;
+
+  }
+
+
+  .interessados-cabecalho {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+  }
+
+
+  .interessados-cabecalho h1 {
+
+    font-size: 30px;
+
+  }
+
+
+  .btn-atualizar-interessados {
+
+    width: 100%;
+
+  }
+
+
+  .interessados-resumo {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+  }
+
+
+  .lista-interessados {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 430px) {
+
+  .interessados-resumo {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .interessados-cabecalho h1 {
+
+    font-size: 27px;
+
+  }
+
+
+  .card-interessado-topo {
+
+    padding: 17px;
+
+  }
+
+
+  .dados-interessado {
+
+    padding: 17px;
+
+  }
+
+
+  .acoes-interessado {
+
+    padding: 17px;
+
+  }
+
+}

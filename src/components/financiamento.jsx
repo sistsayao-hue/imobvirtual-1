@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./financiamento.css";
@@ -19,32 +20,24 @@ const Financiamento = () => {
   const [valorImovel, setValorImovel] = useState("");
   const [entrada, setEntrada] = useState("");
   const [valorFinanciado, setValorFinanciado] = useState("");
-  const [quantidadeParcelas, setQuantidadeParcelas] =
-    useState("");
-  const [valorParcela, setValorParcela] = useState("");
-  const [dataPrimeiraParcela, setDataPrimeiraParcela] =
-    useState("");
+
   const [dataEntregaChaves, setDataEntregaChaves] =
     useState("");
+
   const [dataAssinatura, setDataAssinatura] =
     useState("");
-  const [intermediarias, setIntermediarias] =
-    useState("");
-  const [quantidadeIntermediarias, setQuantidadeIntermediarias] =
-    useState("");
-  const [formaPagamento, setFormaPagamento] =
-    useState("");
+
   const [financiamento, setFinanciamento] =
     useState("");
+
   const [observacoes, setObservacoes] = useState("");
+
   const [respostaPHP, setRespostaPHP] = useState("");
 
   useEffect(() => {
     const carregarApartamentos = async () => {
       try {
-        const resposta = await fetch(
-          API_APARTAMENTOS
-        );
+        const resposta = await fetch(API_APARTAMENTOS);
 
         if (!resposta.ok) {
           throw new Error(
@@ -79,6 +72,14 @@ const Financiamento = () => {
   }, []);
 
   const formatarMoeda = (valor) => {
+    if (
+      valor === undefined ||
+      valor === null ||
+      valor === ""
+    ) {
+      return "";
+    }
+
     const numero = Number(valor);
 
     if (isNaN(numero)) {
@@ -92,8 +93,7 @@ const Financiamento = () => {
   };
 
   const handleValorImovel = (event) => {
-    const texto =
-      event.target.value.replace(/\D/g, "");
+    const texto = event.target.value.replace(/\D/g, "");
 
     if (!texto) {
       setValorImovel("");
@@ -107,17 +107,45 @@ const Financiamento = () => {
     );
   };
 
+  const handleEntrada = (event) => {
+    const texto = event.target.value.replace(/\D/g, "");
+
+    if (!texto) {
+      setEntrada("");
+      return;
+    }
+
+    const numero = Number(texto) / 100;
+
+    setEntrada(
+      formatarMoeda(numero)
+    );
+  };
+
+  const handleValorFinanciado = (event) => {
+    const texto = event.target.value.replace(/\D/g, "");
+
+    if (!texto) {
+      setValorFinanciado("");
+      return;
+    }
+
+    const numero = Number(texto) / 100;
+
+    setValorFinanciado(
+      formatarMoeda(numero)
+    );
+  };
+
   const handleApartamento = (event) => {
     const codigo = event.target.value;
 
     setApartamentoCod(codigo);
 
-    const selecionado =
-      apartamentos.find(
-        (item) =>
-          String(item.cod) ===
-          String(codigo)
-      );
+    const selecionado = apartamentos.find(
+      (item) =>
+        String(item.cod) === String(codigo)
+    );
 
     console.log(
       "CODIGO SELECIONADO:",
@@ -182,8 +210,17 @@ const Financiamento = () => {
           valorFinanciado:
             valorFinanciado,
 
-          quantidadeParcelas:
-            quantidadeParcelas,
+          dataEntregaChaves:
+            dataEntregaChaves,
+
+          dataAssinatura:
+            dataAssinatura,
+
+          financiamento:
+            financiamento,
+
+          observacoes:
+            observacoes,
         },
       }
     );
@@ -229,27 +266,16 @@ const Financiamento = () => {
 
     formulario.append(
       "entrada",
-      entrada
+      converterMoedaParaBanco(
+        entrada
+      )
     );
 
     formulario.append(
       "valor_financiado",
-      valorFinanciado
-    );
-
-    formulario.append(
-      "quantidade_parcelas",
-      quantidadeParcelas
-    );
-
-    formulario.append(
-      "valor_parcela",
-      valorParcela
-    );
-
-    formulario.append(
-      "data_primeira_parcela",
-      dataPrimeiraParcela
+      converterMoedaParaBanco(
+        valorFinanciado
+      )
     );
 
     formulario.append(
@@ -263,21 +289,6 @@ const Financiamento = () => {
     );
 
     formulario.append(
-      "intermediarias",
-      intermediarias
-    );
-
-    formulario.append(
-      "quantidade_intermediarias",
-      quantidadeIntermediarias
-    );
-
-    formulario.append(
-      "forma_pagamento",
-      formaPagamento
-    );
-
-    formulario.append(
       "financiamento",
       financiamento
     );
@@ -285,6 +296,10 @@ const Financiamento = () => {
     formulario.append(
       "observacoes",
       observacoes
+    );
+
+    console.log(
+      "=============================="
     );
 
     console.log(
@@ -297,8 +312,48 @@ const Financiamento = () => {
     );
 
     console.log(
-      "apartamento:",
-      apartamentoSelecionado
+      "valor_imovel:",
+      converterMoedaParaBanco(
+        valorImovel
+      )
+    );
+
+    console.log(
+      "entrada:",
+      converterMoedaParaBanco(
+        entrada
+      )
+    );
+
+    console.log(
+      "valor_financiado:",
+      converterMoedaParaBanco(
+        valorFinanciado
+      )
+    );
+
+    console.log(
+      "data_entrega_chaves:",
+      dataEntregaChaves
+    );
+
+    console.log(
+      "data_assinatura:",
+      dataAssinatura
+    );
+
+    console.log(
+      "financiamento:",
+      financiamento
+    );
+
+    console.log(
+      "observacoes:",
+      observacoes
+    );
+
+    console.log(
+      "=============================="
     );
 
     setRespostaPHP(
@@ -327,9 +382,30 @@ const Financiamento = () => {
         texto
       );
 
-      setRespostaPHP(
-        `HTTP: ${resposta.status}\n\n${texto}`
-      );
+      let dados;
+
+      try {
+        dados = JSON.parse(texto);
+      } catch {
+        dados = null;
+      }
+
+      if (dados) {
+        if (dados.sucesso) {
+          setRespostaPHP(
+            `GRAVOU COM SUCESSO\nID: ${dados.id}`
+          );
+        } else {
+          setRespostaPHP(
+            `ERRO: ${dados.mensagem || "Erro no cadastro"}\n${dados.erro || ""}`
+          );
+        }
+      } else {
+        setRespostaPHP(
+          `HTTP: ${resposta.status}\n\n${texto}`
+        );
+      }
+
     } catch (erro) {
       console.error(
         "ERRO FETCH:",
@@ -346,7 +422,6 @@ const Financiamento = () => {
     <div className="pagina-financiamento">
 
       <header className="header-financiamento">
-
         <div className="marca-financiamento">
 
           <div className="marca-simbolo-financiamento">
@@ -366,7 +441,6 @@ const Financiamento = () => {
           </div>
 
         </div>
-
       </header>
 
       <main className="area-financiamento">
@@ -392,9 +466,7 @@ const Financiamento = () => {
 
             <select
               value={apartamentoCod}
-              onChange={
-                handleApartamento
-              }
+              onChange={handleApartamento}
             >
 
               <option value="">
@@ -433,9 +505,7 @@ const Financiamento = () => {
             <input
               type="text"
               value={valorImovel}
-              onChange={
-                handleValorImovel
-              }
+              onChange={handleValorImovel}
               placeholder="0,00"
             />
 
@@ -450,42 +520,8 @@ const Financiamento = () => {
             <input
               type="text"
               value={entrada}
-              onChange={(event) =>
-                setEntrada(
-                  event.target.value
-                )
-              }
-            />
-
-          </div>
-
-          <div className="campo-financiamento">
-  <label>FINANCIAMENTO</label>
-  <input
-    type="text"
-    value={financiamento}
-    onChange={(event) =>
-      setFinanciamento(event.target.value)
-    }
-  />
-</div>
-
-          <div className="campo-financiamento">
-
-            <label>
-              QUANTIDADE DE PARCELAS
-            </label>
-
-            <input
-              type="number"
-              value={
-                quantidadeParcelas
-              }
-              onChange={(event) =>
-                setQuantidadeParcelas(
-                  event.target.value
-                )
-              }
+              onChange={handleEntrada}
+              placeholder="0,00"
             />
 
           </div>
@@ -493,37 +529,14 @@ const Financiamento = () => {
           <div className="campo-financiamento">
 
             <label>
-              VALOR DA PARCELA
+              VALOR FINANCIADO
             </label>
 
             <input
               type="text"
-              value={valorParcela}
-              onChange={(event) =>
-                setValorParcela(
-                  event.target.value
-                )
-              }
-            />
-
-          </div>
-
-          <div className="campo-financiamento">
-
-            <label>
-              DATA DA 1ª PARCELA
-            </label>
-
-            <input
-              type="date"
-              value={
-                dataPrimeiraParcela
-              }
-              onChange={(event) =>
-                setDataPrimeiraParcela(
-                  event.target.value
-                )
-              }
+              value={valorFinanciado}
+              onChange={handleValorFinanciado}
+              placeholder="0,00"
             />
 
           </div>
@@ -536,9 +549,7 @@ const Financiamento = () => {
 
             <input
               type="date"
-              value={
-                dataEntregaChaves
-              }
+              value={dataEntregaChaves}
               onChange={(event) =>
                 setDataEntregaChaves(
                   event.target.value
@@ -556,96 +567,13 @@ const Financiamento = () => {
 
             <input
               type="date"
-              value={
-                dataAssinatura
-              }
+              value={dataAssinatura}
               onChange={(event) =>
                 setDataAssinatura(
                   event.target.value
                 )
               }
             />
-
-          </div>
-
-          <div className="campo-financiamento">
-
-            <label>
-              INTERMEDIÁRIAS
-            </label>
-
-            <input
-              type="text"
-              value={intermediarias}
-              onChange={(event) =>
-                setIntermediarias(
-                  event.target.value
-                )
-              }
-            />
-
-          </div>
-
-          <div className="campo-financiamento">
-
-            <label>
-              QTD. INTERMEDIÁRIAS
-            </label>
-
-            <input
-              type="number"
-              value={
-                quantidadeIntermediarias
-              }
-              onChange={(event) =>
-                setQuantidadeIntermediarias(
-                  event.target.value
-                )
-              }
-            />
-
-          </div>
-
-          <div className="campo-financiamento">
-
-            <label>
-              FORMA DE PAGAMENTO
-            </label>
-
-            <select
-              value={formaPagamento}
-              onChange={(event) =>
-                setFormaPagamento(
-                  event.target.value
-                )
-              }
-            >
-
-              <option value="">
-                Selecione
-              </option>
-
-              <option value="À vista">
-                À vista
-              </option>
-
-              <option value="Financiamento bancário">
-                Financiamento bancário
-              </option>
-
-              <option value="Entrada + financiamento">
-                Entrada + financiamento
-              </option>
-
-              <option value="Entrada + parcelas">
-                Entrada + parcelas
-              </option>
-
-              <option value="Outro">
-                Outro
-              </option>
-
-            </select>
 
           </div>
 
@@ -712,9 +640,7 @@ const Financiamento = () => {
 
             <button
               type="button"
-              onClick={
-                irParaAreaNegocios
-              }
+              onClick={irParaAreaNegocios}
               className="link-area-negocios"
             >
               ◆ ÁREA DE NEGÓCIOS

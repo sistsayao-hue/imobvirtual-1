@@ -1,4 +1,3 @@
-
 .pagina-area-negocios {
   min-height: 100vh;
   background: linear-gradient(
@@ -7,279 +6,418 @@
     #e2eee9 55%,
     #eeeaf5 100%
   );
+
   font-family: Arial, Helvetica, sans-serif;
   color: #29372f;
+
   padding-bottom: 60px;
 }
 
 
-.titulo-card-negocio{
-
-margin: 20px;
-font-size: 45px;
-  font-weight: 700;
-  color: #1c640a;
-
-
-}
-
-
-.dado-negocio-imovel{
-
-font-size: 48px;
-  font-weight: 700;
-  color: #20a2a7;
-  border: 5px solid #2b0758;
-}
-
-.valor-negocio{
-margin-top: 20px;
-font-size: 45px;
-  font-weight: 700;
-  color: #b62baa;
-
-
-}
-
-.campo-area-negocios {
-
-  margin:20px;
-  display: flex;
-  flex-direction: column;
-
-  gap: 18px;
-  font-size:35px;
-  border: 7px solid rgb(157, 196, 50)f;
-}
-
-
-
-.dado-negocio{
-
-background: #f8fbf9;
-  border: 1px solid #dbe5df;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 10%;;
-
-}
-
-
-
+/* =========================
+   HEADER
+========================= */
 
 .header-area-negocios {
-  min-height: 120px;
+  min-height: 125px;
+
   background: linear-gradient(
     135deg,
     #214b3b,
     #356652,
     #65547d
   );
+
   display: flex;
   align-items: center;
+
   padding: 20px 6%;
   box-sizing: border-box;
+
   box-shadow: 0 5px 20px rgba(35, 49, 43, 0.16);
 }
 
 .marca-area-negocios {
-
- font-size: 30px;
-
   display: flex;
   align-items: center;
-  gap: 17px;
+  gap: 18px;
 }
 
 .simbolo-area-negocios {
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
+
   border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #d9cae8;
+
+  color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
-  font-size: 24px;
+
+  font-size: 27px;
+  font-weight: 800;
 }
 
 .marca-area-negocios h1 {
   margin: 0;
+
   color: #ffffff;
-  font-size: 34px;
-  letter-spacing: 4px;
+
+  font-size: 38px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
 }
 
 .marca-area-negocios span {
   display: block;
+
   margin-top: 5px;
-  color: #d9cae8;
-  font-size: 12px;
+
+  color: #ded5e8;
+
+  font-size: 14px;
   font-weight: 700;
+
   letter-spacing: 3px;
 }
+
+
+/* =========================
+   CONTEÚDO
+========================= */
 
 .conteudo-area-negocios {
   width: 92%;
   max-width: 1080px;
-  margin: 42px auto;
+
+  margin: 38px auto;
 }
+
+
+/* =========================
+   TÍTULO
+========================= */
 
 .titulo-area-negocios {
   text-align: center;
+
   margin-bottom: 32px;
 }
 
 .titulo-area-negocios h2 {
   margin: 0;
+
   color: #284b3d;
-  font-size: 32px;
+
+  font-size: 34px;
   font-weight: 800;
+
+  line-height: 1.25;
 }
 
 .titulo-area-negocios p {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
+
   color: #69766f;
-  font-size: 16px;
+
+  font-size: 18px;
+  line-height: 1.5;
 }
 
-.oferta-negocio,
-.resumo-investimento,
-.vantagens-negocio {
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid #d6e1dc;
-  border-radius: 18px;
-  box-shadow: 0 14px 40px rgba(44, 70, 59, 0.12);
-}
+
+/* =========================
+   INFORMAÇÕES DO IMÓVEL
+========================= */
 
 .oferta-negocio {
+  background: rgba(255, 255, 255, 0.98);
+
+  border: 1px solid #d6e1dc;
+  border-radius: 18px;
+
+  box-shadow: 0 14px 40px rgba(44, 70, 59, 0.12);
+
   padding: 32px;
+
   margin-bottom: 28px;
 }
 
+
+/* =========================
+   CABEÇALHO DA OFERTA
+========================= */
+
 .oferta-topo {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
+  gap: 30px;
+
   padding-bottom: 20px;
-  margin-bottom: 25px;
-  border-bottom: 1px solid #e2e8e4;
+  margin-bottom: 28px;
+
+  border-bottom: 2px solid #e2e8e4;
 }
 
 .oferta-topo span {
-  color: #68756f;
-  font-size: 12px;
+  display: block;
+
+  color: #52625a;
+
+  font-size: 17px;
   font-weight: 800;
-  letter-spacing: 1.5px;
+
+  letter-spacing: 1.2px;
 }
 
 .oferta-topo strong {
+  display: block;
+
   color: #66517d;
-  font-size: 12px;
-  letter-spacing: 1px;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
 }
+
+
+/* =========================
+   LINHAS
+========================= */
 
 .linha-negocio {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-bottom: 22px;
+
+  gap: 24px;
+
+  margin-bottom: 24px;
 }
+
+.linha-negocio:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   CAMPOS
+========================= */
 
 .campo-negocio {
   display: flex;
+
   flex-direction: column;
+
+  gap: 9px;
 }
 
 .campo-negocio label {
-  margin-bottom: 8px;
+  display: block;
+
   color: #365847;
-  font-size: 12px;
+
+  font-size: 18px;
   font-weight: 800;
-  letter-spacing: 0.7px;
+
+  line-height: 1.4;
 }
 
 .campo-negocio input {
-  height: 48px;
+  width: 100%;
+
+  height: 60px;
+
   box-sizing: border-box;
-  padding: 0 14px;
+
+  padding: 0 18px;
+
   border: 1px solid #cbd9d2;
-  border-radius: 9px;
+  border-radius: 10px;
+
   background: #fbfdfc;
+
   color: #263a31;
-  font-size: 15px;
+
+  font-size: 21px;
+  font-weight: 700;
+
   outline: none;
+
   transition: 0.25s;
 }
 
 .campo-negocio input:focus {
   border-color: #75608d;
-  box-shadow: 0 0 0 3px rgba(117, 96, 141, 0.12);
+
+  box-shadow:
+    0 0 0 3px rgba(117, 96, 141, 0.12);
+
   background: #ffffff;
 }
 
+.campo-negocio input::placeholder {
+  color: #89958e;
+
+  font-weight: 500;
+}
+
+
+/* =========================
+   DIVISÃO DO NEGÓCIO
+========================= */
+
 .resumo-investimento {
+  background: rgba(255, 255, 255, 0.98);
+
+  border: 1px solid #d6e1dc;
+  border-radius: 18px;
+
+  box-shadow: 0 14px 40px rgba(44, 70, 59, 0.12);
+
   padding: 32px;
+
   margin-bottom: 28px;
 }
 
+
+/* =========================
+   TÍTULO DA DIVISÃO
+========================= */
+
 .resumo-titulo {
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
 .resumo-titulo span {
+  display: block;
+
+  margin-bottom: 8px;
+
   color: #75608d;
-  font-size: 11px;
+
+  font-size: 15px;
   font-weight: 800;
-  letter-spacing: 1.7px;
+
+  letter-spacing: 1.5px;
 }
 
 .resumo-titulo h3 {
-  margin: 7px 0 0;
+  margin: 0;
+
   color: #294d3d;
-  font-size: 25px;
+
+  font-size: 29px;
+  font-weight: 800;
+
+  line-height: 1.3;
 }
+
+
+/* =========================
+   CARDS DOS VALORES
+========================= */
 
 .cards-investimento {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+
+  gap: 18px;
 }
 
 .card-investimento {
-  min-height: 105px;
-  padding: 20px;
+  min-height: 155px;
+
+  padding: 22px;
+
   box-sizing: border-box;
+
   border: 1px solid #dbe5df;
-  border-radius: 12px;
+  border-radius: 14px;
+
   background: #f8fbf9;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  overflow: hidden;
 }
+
+
+/* TÍTULO DO CARD */
 
 .card-investimento span {
   display: block;
-  color: #718078;
-  font-size: 10px;
+
+  width: 100%;
+
+  margin: 0 0 12px;
+
+  color: #52625a;
+
+  font-size: 15px;
   font-weight: 800;
-  letter-spacing: 1px;
+
+  letter-spacing: 0.5px;
+
+  line-height: 1.4;
 }
+
+
+/* VALOR R$ */
 
 .card-investimento strong {
   display: block;
-  margin-top: 13px;
-  color: #2b503f;
-  font-size: 20px;
+
+  width: 100%;
+
+  margin: 0;
+
+  color: #244d39;
+
+  font-size: 27px;
+  font-weight: 800;
+
+  line-height: 1.25;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
+
+
+/* TEXTO ABAIXO DO VALOR */
 
 .card-investimento small {
   display: block;
-  margin-top: 6px;
-  color: #7b7184;
-  font-size: 11px;
+
+  width: 100%;
+
+  margin-top: 9px;
+
+  color: #68756f;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  line-height: 1.45;
 }
+
+
+/* DESTAQUE */
 
 .card-investimento.destaque {
   border-color: #c9bdd6;
+
   background: linear-gradient(
     135deg,
     #f7f4fa,
@@ -291,38 +429,62 @@ background: #f8fbf9;
   color: #68527f;
 }
 
+
+/* =========================
+   PROJEÇÃO FINANCEIRA
+========================= */
+
 .projecao-financeira {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 15px;
-  margin-top: 20px;
-  padding-top: 22px;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+
+  margin-top: 24px;
+
+  padding-top: 24px;
+
   border-top: 1px solid #e1e8e3;
 }
 
 .projecao-item {
-  padding: 20px;
-  border-radius: 12px;
+  padding: 22px;
+
+  border-radius: 14px;
+
   background: #f4f8f5;
 }
 
 .projecao-item span {
   display: block;
-  color: #718078;
-  font-size: 10px;
+
+  margin-bottom: 10px;
+
+  color: #52625a;
+
+  font-size: 15px;
   font-weight: 800;
-  letter-spacing: 1px;
+
+  line-height: 1.4;
 }
 
 .projecao-item strong {
   display: block;
-  margin-top: 10px;
+
   color: #315845;
-  font-size: 22px;
+
+  font-size: 28px;
+  font-weight: 800;
+
+  line-height: 1.25;
+
+  overflow-wrap: anywhere;
 }
 
 .projecao-item.resultado {
   background: #f1edf6;
+
   border: 1px solid #d6cce0;
 }
 
@@ -330,79 +492,128 @@ background: #f8fbf9;
   color: #67517d;
 }
 
+
+/* =========================
+   RESUMO DA NEGOCIAÇÃO
+========================= */
+
 .vantagens-negocio {
+  background: rgba(255, 255, 255, 0.98);
+
+  border: 1px solid #d6e1dc;
+  border-radius: 18px;
+
+  box-shadow: 0 14px 40px rgba(44, 70, 59, 0.12);
+
   padding: 32px;
+
   margin-bottom: 28px;
 }
 
 .vantagens-negocio h3 {
-  margin: 0 0 25px;
+  margin: 0 0 26px;
+
   color: #294d3d;
-  font-size: 24px;
+
+  font-size: 28px;
+  font-weight: 800;
 }
 
 .vantagens-grid {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 18px;
 }
 
 .vantagem {
-  padding: 20px;
+  padding: 22px;
+
   border: 1px solid #dce5df;
-  border-radius: 12px;
+  border-radius: 14px;
+
   background: #fafcfb;
 }
 
 .vantagem > div {
   color: #735d89;
-  font-size: 18px;
+
+  font-size: 22px;
+
+  margin-bottom: 8px;
 }
 
 .vantagem h4 {
-  margin: 13px 0 8px;
+  margin: 0 0 9px;
+
   color: #315845;
-  font-size: 15px;
+
+  font-size: 19px;
+  font-weight: 800;
 }
 
 .vantagem p {
   margin: 0;
-  color: #727d77;
-  font-size: 13px;
-  line-height: 1.6;
+
+  color: #5f6c65;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  line-height: 1.5;
 }
+
+
+/* =========================
+   BOTÕES
+========================= */
 
 .acoes-area-negocios {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
   gap: 15px;
 }
 
 .voltar-negocios,
 .inicio-negocios {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 25px;
-  border-radius: 9px;
+
+  min-height: 56px;
+
+  padding: 0 28px;
+
+  border-radius: 10px;
+
   text-decoration: none;
-  font-size: 13px;
+
+  font-size: 17px;
   font-weight: 800;
-  letter-spacing: 0.7px;
+
+  letter-spacing: 0.5px;
+
   transition: 0.25s;
 }
 
 .voltar-negocios {
   border: 1px solid #c7d5ce;
+
   background: #f6f9f7;
+
   color: #315845;
 }
 
 .inicio-negocios {
   border: 1px solid #76608d;
+
   background: #6b567e;
+
   color: #ffffff;
 }
 
@@ -411,7 +622,13 @@ background: #f8fbf9;
   transform: translateY(-2px);
 }
 
+
+/* =========================
+   TABLET
+========================= */
+
 @media (max-width: 850px) {
+
   .cards-investimento,
   .vantagens-grid {
     grid-template-columns: 1fr 1fr;
@@ -420,30 +637,68 @@ background: #f8fbf9;
   .projecao-financeira {
     grid-template-columns: 1fr;
   }
+
+  .card-investimento strong {
+    font-size: 27px;
+  }
 }
 
+
+/* =========================
+   CELULAR
+========================= */
+
 @media (max-width: 650px) {
+
   .header-area-negocios {
-    min-height: 105px;
+    min-height: 110px;
+
     padding: 18px 5%;
   }
 
+  .marca-area-negocios {
+    gap: 13px;
+  }
+
+  .simbolo-area-negocios {
+    width: 52px;
+    height: 52px;
+
+    font-size: 22px;
+  }
+
   .marca-area-negocios h1 {
-    font-size: 28px;
+    font-size: 29px;
+
+    letter-spacing: 2px;
   }
 
   .marca-area-negocios span {
     font-size: 10px;
+
+    letter-spacing: 2px;
   }
+
 
   .conteudo-area-negocios {
     width: 94%;
-    margin: 30px auto;
+
+    margin: 28px auto;
+  }
+
+
+  .titulo-area-negocios {
+    margin-bottom: 25px;
   }
 
   .titulo-area-negocios h2 {
-    font-size: 27px;
+    font-size: 29px;
   }
+
+  .titulo-area-negocios p {
+    font-size: 17px;
+  }
+
 
   .oferta-negocio,
   .resumo-investimento,
@@ -451,20 +706,80 @@ background: #f8fbf9;
     padding: 22px;
   }
 
+
+  .oferta-topo {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  .oferta-topo span,
+  .oferta-topo strong {
+    font-size: 15px;
+  }
+
+
   .linha-negocio {
     grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
   }
+
+
+  .campo-negocio label {
+    font-size: 18px;
+  }
+
+  .campo-negocio input {
+    height: 60px;
+
+    font-size: 20px;
+  }
+
+
+  .resumo-titulo h3 {
+    font-size: 27px;
+  }
+
 
   .cards-investimento,
   .vantagens-grid {
     grid-template-columns: 1fr;
   }
 
-  .oferta-topo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+
+  .card-investimento {
+    min-height: 145px;
+
+    padding: 21px;
   }
+
+  .card-investimento span {
+    font-size: 15px;
+  }
+
+  .card-investimento strong {
+    font-size: 28px;
+  }
+
+  .card-investimento small {
+    font-size: 15px;
+  }
+
+
+  .projecao-item strong {
+    font-size: 28px;
+  }
+
+
+  .vantagens-negocio h3 {
+    font-size: 26px;
+  }
+
 
   .acoes-area-negocios {
     flex-direction: column;
@@ -473,7 +788,56 @@ background: #f8fbf9;
   .voltar-negocios,
   .inicio-negocios {
     width: 100%;
+
+    min-height: 56px;
+
+    font-size: 17px;
   }
 }
 
+.divisao-condicoes-negocio {
+  width: 100%;
+  max-width: 1100px;
+  margin: 15px auto 15px;
+  text-align: center;
+}
 
+.linha-dourada,
+.linha-violeta {
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+}
+
+.linha-dourada {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #288f49,
+    #320aa0,
+    #2499b6,
+    transparent
+  );
+  margin-bottom: 20px;
+}
+
+.linha-violeta {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #05501e,
+    #1b7908,
+    #7652a8,
+    transparent
+  );
+  margin-top: 20px;
+}
+
+.divisao-condicoes-negocio h1 {
+  margin: 0;
+  padding: 0 20px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #4b3b55;
+}

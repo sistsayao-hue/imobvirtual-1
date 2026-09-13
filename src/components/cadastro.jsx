@@ -12,7 +12,9 @@ const Cadastro = () => {
   const [descricao, setDescricao] = useState("");
 const [endereco, setEndereco] = useState("");
 const [dts, setDts] = useState("");
+const [vagas, setVagas] = useState("");
 
+const [condominio, setCondominio ] = useState("");
   // Foto ou vídeo
   const [video, setVideo] = useState(null);
 
@@ -83,6 +85,9 @@ formulario.append(
       "preco",
       preco
     );
+
+    formulario.append("vagas", vagas);
+formulario.append("condominio", condominio);
 
     formulario.append(
       "descricao",
@@ -404,6 +409,9 @@ console.log(
             </div>
 
 
+</div>
+
+  <div className="linha-campos">
             <div className="campo">
 
               <label htmlFor="dts">
@@ -425,7 +433,33 @@ console.log(
 
             </div>
 
-          </div>
+
+               <div className="campo">
+
+              <label htmlFor="vagas">
+                VAGAS
+              </label>
+
+              <input
+                id="vagas"
+                type="number"
+                min="1"
+                value={vagas}
+                onChange={(event) =>
+                  setVagas(
+                    event.target.value
+                  )
+                }
+                placeholder="Ex: 2"
+              />
+
+            </div>
+
+</div>
+
+
+
+        
 
           {/* ================================= */}
           {/* PRECO */}
@@ -457,6 +491,31 @@ console.log(
 
           </div>
 
+    <div className="linha-campos">
+
+            <div className="campo">
+
+              <label htmlFor="condominio">
+                CONDOMÍNIO
+              </label>
+
+              <input
+                id="condominio"
+                type="number"
+                min="0"
+                step="0.01"
+                value={condominio}
+                onChange={(event) =>
+                  setCondominio(
+                    event.target.value
+                  )
+                }
+                placeholder="Ex: 200"
+              />
+
+            </div>
+
+          </div>
 
           {/* ================================= */}
           {/* DESCRICAO */}
@@ -515,6 +574,25 @@ console.log(
           {/* ACOES */}
           {/* ================================= */}
 
+
+
+ <div className="acoes">
+
+         <button
+              type="submit"
+              className="bt"
+            >
+              ENVIAR CADASTRO
+            </button> 
+  
+
+
+ </div>
+
+
+
+
+
           <div className="acoes">
 
             <Link
@@ -525,12 +603,28 @@ console.log(
             </Link>
 
 
-            <button
-              type="submit"
-              className="bt"
-            >
-              ENVIAR CADASTRO
-            </button>
+
+            <Link to="/financiamento">
+              FINANCIAMENTO
+            </Link>
+
+<Link
+  to="/interessados"
+  className="acoes"
+>
+  Interessados
+</Link>
+
+
+
+
+  <Link
+    to="/excluir-imovel"
+    className="excluir"
+  >
+    🗑 EXCLUIR IMÓVEL
+  </Link>
+         
 
           </div>
 

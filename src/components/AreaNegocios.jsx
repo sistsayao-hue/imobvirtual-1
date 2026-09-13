@@ -1,17 +1,22 @@
+
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./AreaNegocios.css";
 
 const AreaNegocios = () => {
   const location = useLocation();
+
   const dados = location.state || {};
+
   console.log("DADOS RECEBIDOS:", dados);
-console.log("ENTRADA RECEBIDA:", dados.entrada);
+  console.log("ENTRADA RECEBIDA:", dados.entrada);
+
   const apartamento = dados.apartamento || {};
 
   const [compradores, setCompradores] = useState("");
   const [valorPorComprador, setValorPorComprador] = useState("");
-  const [entradaPorComprador, setEntradaPorComprador] = useState("");
+  const [entradaPorComprador, setEntradaPorComprador] =
+    useState("");
 
   const nomeImovel =
     apartamento.empreendimento ||
@@ -22,10 +27,25 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
   const valorImovel = dados.valorImovel || "";
   const entrada = dados.entrada || "";
   const valorFinanciado = dados.valorFinanciado || "";
-  const quantidadeParcelas = dados.quantidadeParcelas || "";
+
+  const dataEntregaChaves =
+    dados.dataEntregaChaves || "";
+
+  const dataAssinatura =
+    dados.dataAssinatura || "";
+
+  const financiamento =
+    dados.financiamento || "";
+
+  const observacoes =
+    dados.observacoes || "";
 
   const converterNumero = (valor) => {
-    if (valor === undefined || valor === null || valor === "") {
+    if (
+      valor === undefined ||
+      valor === null ||
+      valor === ""
+    ) {
       return 0;
     }
 
@@ -39,7 +59,9 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
       .trim();
 
     if (texto.includes(",")) {
-      texto = texto.replace(/\./g, "").replace(",", ".");
+      texto = texto
+        .replace(/\./g, "")
+        .replace(",", ".");
     }
 
     const numero = Number(texto);
@@ -58,14 +80,34 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
     });
   };
 
+  const formatarData = (data) => {
+    if (!data) {
+      return "";
+    }
+
+    const partes = data.split("-");
+
+    if (partes.length !== 3) {
+      return data;
+    }
+
+    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+  };
+
   const calcularValores = (event) => {
-    const quantidade = event.target.value.replace(/\D/g, "");
+    const quantidade =
+      event.target.value.replace(/\D/g, "");
 
     setCompradores(quantidade);
 
-    const numeroCompradores = Number(quantidade);
-    const numeroImovel = converterNumero(valorImovel);
-    const numeroEntrada = converterNumero(entrada);
+    const numeroCompradores =
+      Number(quantidade);
+
+    const numeroImovel =
+      converterNumero(valorImovel);
+
+    const numeroEntrada =
+      converterNumero(entrada);
 
     if (numeroCompradores > 0) {
       setValorPorComprador(
@@ -85,54 +127,83 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
     <div className="pagina-area-negocios">
 
       <header className="header-area-negocios">
+
         <div className="marca-area-negocios">
+
           <div className="simbolo-area-negocios">
             $
           </div>
 
           <div>
-            <h1>IMÓVEIS</h1>
-            <span>ÁREA DE NEGÓCIOS</span>
+            <h1>
+              IMÓVEIS
+            </h1>
+
+            <span>
+              ÁREA DE NEGÓCIOS
+            </span>
           </div>
+
         </div>
+
       </header>
 
       <main className="conteudo-area-negocios">
 
         <div className="titulo-area-negocios">
-          <h2>Condições de Negócio</h2>
+
+          <h2>
+            Condições de Negócio
+          </h2>
+
           <p>
             Visualize os valores e faça a divisão entre os compradores.
           </p>
+
         </div>
 
         <section className="oferta-negocio">
 
           <div className="oferta-topo">
-            <span>INFORMAÇÕES DO IMÓVEL</span>
-            <strong>NEGOCIAÇÃO</strong>
+
+            <span>
+              INFORMAÇÕES DO IMÓVEL
+            </span>
+
+            <strong>
+              NEGOCIAÇÃO
+            </strong>
+
           </div>
 
           <div className="linha-negocio">
 
             <div className="campo-negocio">
-              <label>IMÓVEL</label>
+
+              <label>
+                IMÓVEL
+              </label>
 
               <input
                 type="text"
                 value={nomeImovel}
                 readOnly
               />
+
             </div>
 
             <div className="campo-negocio">
-              <label>VALOR DO IMÓVEL</label>
+
+              <label>
+                VALOR DO IMÓVEL
+              </label>
 
               <input
                 type="text"
                 value={formatarMoeda(valorImovel)}
                 readOnly
               />
+
             </div>
 
           </div>
@@ -140,23 +211,31 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
           <div className="linha-negocio">
 
             <div className="campo-negocio">
-              <label>ENTRADA</label>
+
+              <label>
+                ENTRADA
+              </label>
 
               <input
                 type="text"
                 value={formatarMoeda(entrada)}
                 readOnly
               />
+
             </div>
 
             <div className="campo-negocio">
-              <label>VALOR FINANCIADO</label>
+
+              <label>
+                VALOR FINANCIADO
+              </label>
 
               <input
                 type="text"
                 value={formatarMoeda(valorFinanciado)}
                 readOnly
               />
+
             </div>
 
           </div>
@@ -164,17 +243,56 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
           <div className="linha-negocio">
 
             <div className="campo-negocio">
-              <label>QUANTIDADE DE PARCELAS</label>
+
+              <label>
+                ENTREGA DAS CHAVES
+              </label>
 
               <input
                 type="text"
-                value={quantidadeParcelas}
+                value={formatarData(dataEntregaChaves)}
                 readOnly
               />
+
             </div>
 
             <div className="campo-negocio">
-              <label>COMPRADOR(ES)</label>
+
+              <label>
+                DATA DA ASSINATURA
+              </label>
+
+              <input
+                type="text"
+                value={formatarData(dataAssinatura)}
+                readOnly
+              />
+
+            </div>
+
+          </div>
+
+          <div className="linha-negocio">
+
+            <div className="campo-negocio">
+
+              <label>
+                FINANCIAMENTO
+              </label>
+
+              <input
+                type="text"
+                value={financiamento}
+                readOnly
+              />
+
+            </div>
+
+            <div className="campo-negocio">
+
+              <label>
+                COMPRADOR(ES)
+              </label>
 
               <input
                 type="text"
@@ -183,26 +301,55 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
                 onChange={calcularValores}
                 placeholder="Digite a quantidade"
               />
+
             </div>
 
           </div>
+
+          {observacoes && (
+
+            <div className="linha-negocio">
+
+              <div className="campo-negocio campo-observacoes">
+
+                <label>
+                  OBSERVAÇÕES
+                </label>
+
+                <textarea
+                  value={observacoes}
+                  readOnly
+                />
+
+              </div>
+
+            </div>
+
+          )}
 
         </section>
 
         <section className="resumo-investimento">
 
           <div className="resumo-titulo">
-            <span>DIVISÃO DO NEGÓCIO</span>
+
+            <span>
+              DIVISÃO DO NEGÓCIO
+            </span>
 
             <h3>
               Valores por comprador
             </h3>
+
           </div>
 
           <div className="cards-investimento">
 
             <div className="card-investimento destaque">
-              <span>VALOR DO IMÓVEL</span>
+
+              <span>
+                VALOR DO IMÓVEL
+              </span>
 
               <strong>
                 {formatarMoeda(valorImovel)}
@@ -211,10 +358,14 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
               <small>
                 Valor total do imóvel
               </small>
+
             </div>
 
             <div className="card-investimento">
-              <span>ENTRADA</span>
+
+              <span>
+                ENTRADA
+              </span>
 
               <strong>
                 {formatarMoeda(entrada)}
@@ -223,34 +374,47 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
               <small>
                 Valor total da entrada
               </small>
+
             </div>
 
             <div className="card-investimento">
-              <span>VALOR / COMPRADOR</span>
+
+              <span>
+                VALOR / COMPRADOR
+              </span>
 
               <strong>
                 {valorPorComprador === ""
                   ? "R$ 0,00"
-                  : formatarMoeda(valorPorComprador)}
+                  : formatarMoeda(
+                      valorPorComprador
+                    )}
               </strong>
 
               <small>
                 Divisão do valor do imóvel
               </small>
+
             </div>
 
             <div className="card-investimento">
-              <span>ENTRADA / COMPRADOR</span>
+
+              <span>
+                ENTRADA / COMPRADOR
+              </span>
 
               <strong>
                 {entradaPorComprador === ""
                   ? "R$ 0,00"
-                  : formatarMoeda(entradaPorComprador)}
+                  : formatarMoeda(
+                      entradaPorComprador
+                    )}
               </strong>
 
               <small>
                 Divisão da entrada
               </small>
+
             </div>
 
           </div>
@@ -258,29 +422,43 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
           <div className="projecao-financeira">
 
             <div className="projecao-item">
-              <span>COMPRADORES</span>
+
+              <span>
+                COMPRADORES
+              </span>
 
               <strong>
                 {compradores || "0"}
               </strong>
+
             </div>
 
             <div className="projecao-item">
-              <span>VALOR FINANCIADO</span>
+
+              <span>
+                VALOR FINANCIADO
+              </span>
 
               <strong>
                 {formatarMoeda(valorFinanciado)}
               </strong>
+
             </div>
 
             <div className="projecao-item resultado">
-              <span>ENTRADA POR COMPRADOR</span>
+
+              <span>
+                ENTRADA POR COMPRADOR
+              </span>
 
               <strong>
                 {entradaPorComprador === ""
                   ? "R$ 0,00"
-                  : formatarMoeda(entradaPorComprador)}
+                  : formatarMoeda(
+                      entradaPorComprador
+                    )}
               </strong>
+
             </div>
 
           </div>
@@ -296,48 +474,91 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
           <div className="vantagens-grid">
 
             <div className="vantagem">
-              <div>🏠</div>
 
-              <h4>Imóvel</h4>
+              <div>
+                🏠
+              </div>
+
+              <h4>
+                Imóvel
+              </h4>
 
               <p>
-                {nomeImovel || "Imóvel selecionado"}
+                {nomeImovel ||
+                  "Imóvel selecionado"}
               </p>
+
             </div>
 
             <div className="vantagem">
-              <div>💰</div>
 
-              <h4>Valor total</h4>
+              <div>
+                💰
+              </div>
+
+              <h4>
+                Valor total
+              </h4>
 
               <p>
                 {formatarMoeda(valorImovel)}
               </p>
+
             </div>
 
             <div className="vantagem">
-              <div>🤝</div>
 
-              <h4>Compradores</h4>
+              <div>
+                🤝
+              </div>
+
+              <h4>
+                Compradores
+              </h4>
 
               <p>
-                {compradores || "Nenhum comprador informado"}
+                {compradores ||
+                  "Nenhum comprador informado"}
               </p>
+
             </div>
 
             <div className="vantagem">
-              <div>📊</div>
 
-              <h4>Valor individual</h4>
+              <div>
+                📊
+              </div>
+
+              <h4>
+                Valor individual
+              </h4>
 
               <p>
                 {valorPorComprador === ""
                   ? "Informe os compradores"
-                  : formatarMoeda(valorPorComprador)}
+                  : formatarMoeda(
+                      valorPorComprador
+                    )}
               </p>
+
             </div>
 
           </div>
+
+
+
+        <div className="divisao-condicoes-negocio">
+
+          <div className="linha-dourada"></div>
+
+          <h1>
+            VAMOS ÀS CONDIÇÕES DE NEGÓCIO
+          </h1>
+
+          <div className="linha-violeta"></div>
+
+        </div>
+
 
         </section>
 
@@ -366,3 +587,4 @@ console.log("ENTRADA RECEBIDA:", dados.entrada);
 };
 
 export default AreaNegocios;
+
