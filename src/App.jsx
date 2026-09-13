@@ -234,9 +234,7 @@ const Inicio = () => {
               Cadastrar imóvel
             </Link>
 
-            <Link to="/financiamento">
-              Financiamento
-            </Link>
+         
 
           </nav>
 
